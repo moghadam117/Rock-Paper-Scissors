@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <div class="alert"></div>
+    <main>
+      <div class="scores-panel">
+        <span id="users-score" class="user-score">
+          <span id="your-score">Your Score</span>
+          <i class="p-score">0</i>
+        </span>
+        <span id="computer-score" class="computer-score">
+          <span>Computer Score</span>
+          <i class="c-score">0</i>
+        </span>
+      </div>
+      <div class="computer-choice"></div>
+      <div class="arena"></div>
+      <div class="player-move"></div>
+      <div class="players-choice">
+        <h2>Please choose one of the below</h2>
+        <span onclick="gamePlay('rock')"
+          ><img src="img/rock.png" alt=""
+        /></span>
+        <span onclick="gamePlay('scissors')"
+          ><img src="img/scissors.png" alt=""
+        /></span>
+        <span onclick="gamePlay('paper')" class="paper"
+          ><img src="img/paper.png" alt=""
+        /></span>
+      </div>
+      <div class="reset" onclick="reset()"></div>
+      <div class="start" onclick="start()">
+        <div class="overlay"></div>
+        <button id="msg">Username</button>
+      </div>
+      <script>
+        let pFinal = 0;
+        let cFinal = 0;
+        let name = prompt("Please Enter Your Name", "Username");
+        document.getElementById("msg").innerHTML =
+          "Welcome " + name + " Click here to start";
+        document.getElementById("your-score").innerHTML = name + " Score";
+        function start() {
+          document.querySelector(".start").style.display = "none";
+        }
+
+        function gamePlay(classType) {
+          let result;
+          let resultP;
+          let playerResult;
+          let computerResult;
+          // document.querySelector(".computer-choice").style.display= "block";
+          let player = new playersChoice(classType);
+          let pScore = document.querySelector(".p-score");
+          let cScore = document.querySelector(".c-score");
+
+          function playersChoice(classType) {
+            // alert(classType);
+            // document.querySelector(".players-choice").style.display= "none";
+            let playerMove = document.querySelector(".player-move");
+            playerMove.innerHTML =
+              '<h3>Player Choose: </h3><img src="img/' + classType + '.png">';
+            resultP = classType;
+
+            computerChoice();
+            playerResult = resultP.toString();
+            return playerResult;
+          }
+
+          function computerChoice() {
+            let random = Math.floor(Math.random() * 3);
+            console.log(random);
+            let result;
+            let computerInterface = document.querySelector(".computer-choice");
+
+            switch (random) {
+              case 0:
+                computerInterface.innerHTML =
+                  '<h3>Computer Choose: </h3><img  class="rotated" src="img/paper.png">';
+                result = "paper";
+
+                break;
+
+              case 1:
+                computerInterface.innerHTML =
+                  '<h3>Computer Choose: </h3><img class="rotated" src="img/scissors.png">';
+                result = "scissors";
+
+                break;
+
+              case 2:
+                computerInterface.innerHTML =
+                  '<h3>Computer Choose: </h3><img  class="rotated" src="img/rock.png">';
+                result = "rock";
+
+                break;
+            }
+            computerResult = result.toString();
+            return computerResult;
+          }
+
+          setTimeout(function () {
+            if (playerResult == computerResult) {
+              alert("Tie");
+            } else if (playerResult == "rock" && computerResult == "scissors") {
+              pFinal = pFinal + 1;
+              pScore.innerHTML = pFinal;
+              alert("You Win");
+            } else if (
+              playerResult == "scissors" &&
+              computerResult == "paper"
+            ) {
+              pFinal = pFinal + 1;
+              pScore.innerHTML = pFinal;
+              alert("You Win");
+            } else if (playerResult == "paper" && computerResult == "rock") {
+              pFinal = pFinal + 1;
+              pScore.innerHTML = pFinal;
+              alert("You Win");
+            } else {
+              cFinal = cFinal + 1;
+              cScore.innerHTML = cFinal;
+              alert("Computer Wins");
+            }
+          }, 300);
+
+          // document.querySelector(".reset").innerHTML = '<button>Restart</button>';
+        }
+      </script>
+    </main>
+  </body>
+</html>

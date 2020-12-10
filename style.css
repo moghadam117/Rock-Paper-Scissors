@@ -1,0 +1,181 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Work Sans";
+  width: 100%;
+}
+
+.players-choice {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.players-choice h2 {
+  margin: 0 0 1rem 0;
+}
+
+.players-choice img {
+  cursor: pointer;
+  width: 200px;
+  display: inline-block;
+  vertical-align: bottom;
+  padding: 2rem;
+  border-radius: 2rem;
+  border: 2px solid transparent;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.players-choice img:hover {
+  border: 2px solid #eb6536;
+}
+
+.button,
+button {
+  margin: auto;
+  width: 220px;
+  height: 80px;
+  background-color: #eb6536;
+  padding-top: 18px;
+  font-size: 17px;
+  text-align: center;
+  color: #010165;
+  cursor: pointer;
+  color: white;
+  border: none;
+  padding: 0;
+  font-size: 175%;
+  font-weight: bold;
+  overflow: hidden;
+  border-radius: 4rem;
+}
+
+.arena {
+  display: none;
+  background-image: url("img/white-brick-wall-texture-background-wallpaper-graphic-web-game-realistic-seamless-pattern_278395-88.jpg");
+  height: 200px;
+}
+
+h2,
+h3 {
+  font-size: 125%;
+  display: block;
+  text-align: center;
+  margin: 75px 0 0 0;
+}
+
+.computer-choice img {
+  display: block;
+  margin: auto;
+  height: 200px;
+  width: auto;
+  animation-name: rotatedx;
+  animation-duration: 0.5s;
+}
+
+.player-move img {
+  display: block;
+  margin: auto;
+  height: 200px;
+  width: auto;
+  animation-name: rotatedx;
+  animation-duration: 0.5s;
+}
+
+@keyframes rotatedx {
+  0% {
+    transform: rotate(-360deg);
+  }
+
+  60% {
+  }
+
+  100% {
+  }
+}
+
+.start button {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: block;
+  margin: auto;
+  width: 250px;
+  height: 100px;
+  background-color: #eb6536;
+  padding-top: 18px;
+  font-size: 18px;
+  text-align: center;
+  color: #010165;
+  cursor: pointer;
+  color: white;
+  border: none;
+  padding: 0;
+  font-size: 175%;
+  font-weight: bold;
+  overflow: hidden;
+  border-radius: 4rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000c7;
+}
+
+.scores-panel i {
+  display: block;
+  text-align: center;
+  font-style: normal;
+  font-size: 300%;
+}
+
+/* .alert{
+  width:400px;
+  height:200px;
+  position:fixed;
+  top:50px;
+  left:0;
+  right:0;
+  margin:auto;
+  background-color:gray;
+  display: none;
+} */
+
+.computer-score {
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  right: 0;
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.user-score {
+  position: fixed;
+  padding: 15px;
+  top: 0;
+  left: 0;
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.reset {
+  display: block;
+  text-align: center;
+  padding: 0 0 2rem 0;
+}
+
+* {
+  /*   border: 1px solid red; */
+}
